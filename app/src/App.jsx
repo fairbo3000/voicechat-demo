@@ -133,7 +133,9 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
               <button>Approve for Training Data</button>
             </article>
           ) : (
-            <article key={m.id} className={`bubble ${m.role === 'sent' ? 'sent' : 'received'}`}><p>{m.text}</p><small>{m.time}</small></article>
+            <div key={m.id} className={`msg-row ${m.role === 'sent' ? 'sent-row' : 'received-row'}`}>
+              <article className={`bubble ${m.role === 'sent' ? 'sent' : 'received'}`}><p>{m.text}</p><small>{m.time}</small></article>
+            </div>
           )
         ))}
       </div>

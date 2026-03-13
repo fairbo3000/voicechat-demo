@@ -31,12 +31,15 @@ button,input{font:inherit}
 .bottom-nav button{border:0;background:transparent;color:#94a3b8;display:grid;place-items:center;gap:4px;font-size:10px;font-weight:700;min-width:44px;min-height:44px}
 .bottom-nav .active{color:#007aff}
 
-.thread{flex:1;overflow:auto;padding:12px 20px;background:#fff;display:grid;gap:10px}
+.thread{flex:1;overflow:auto;padding:12px 20px;background:#fff;display:flex;flex-direction:column;gap:10px}
 .date-pill{margin:0 auto;padding:4px 10px;border-radius:999px;background:#f8fafc;color:#94a3b8;font-size:12px}
-.bubble{max-width:84%;padding:10px 12px;border-radius:16px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
+.msg-row{display:flex;width:100%}
+.received-row{justify-content:flex-start}
+.sent-row{justify-content:flex-end}
+.bubble{display:inline-block;max-width:84%;width:fit-content;padding:10px 12px;border-radius:16px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
 .bubble p{margin:0;font-size:15px;line-height:1.35}.bubble small{display:block;margin-top:4px;font-size:11px;opacity:.8}
 .received{background:#f1f5f9;color:#0f172a;border-top-left-radius:4px}
-.sent{margin-left:auto;background:#007aff;color:#fff;border-top-right-radius:4px}
+.sent{background:#007aff;color:#fff;border-top-right-radius:4px}
 
 .summary-card{background:#f8fafc;border-radius:16px;padding:12px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
 .summary-card .title{margin:0 0 6px;color:#2563eb;font-weight:700}
