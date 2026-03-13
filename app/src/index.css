@@ -75,8 +75,8 @@ button,input{font:inherit}
 .stars{margin:0;color:#f59e0b;font-size:26px}.panel h3{margin:6px 0;font-size:30px}.panel h4{margin:0 0 8px}.panel p{margin:0;color:#475569}.panel.dark p{color:#cbd5e1}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stats-grid .panel p{font-size:20px;font-weight:700;color:#0f172a}
 
-.history-section{display:grid;gap:10px}
-.history-head{display:flex;align-items:center;justify-content:space-between}
+.history-section{display:grid;gap:12px;padding-top:10px}
+.history-head{display:flex;align-items:center;justify-content:space-between;padding:6px 2px 4px}
 .history-head h4{margin:0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8}
 .history-head button{border:0;background:transparent;color:#2563eb;font-weight:700}
 .history-list{display:grid;gap:12px}
