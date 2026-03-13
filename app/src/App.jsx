@@ -5,8 +5,6 @@ import {
 } from 'lucide-react'
 import { getChats, getEarnings, getMessages } from './api'
 
-const STARTER_INTERVAL_MS = 45_000
-
 export default function App() {
   const [chats, setChats] = useState([])
   const [messagesByChat, setMessagesByChat] = useState({})
@@ -77,27 +75,10 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
   const chat = chats.find((c) => c.id === chatId)
   const [showInput, setShowInput] = useState(false)
   const [draft, setDraft] = useState('')
-  const [lastActivityAt, setLastActivityAt] = useState(Date.now())
 
   const messages = messagesByChat[chatId] || []
 
   useEffect(() => { if (chatId) loadMessages(chatId) }, [chatId])
-
-  useEffect(() => {
-    if (!chatId) return
-    const timer = setInterval(() => {
-      const quiet = Date.now() - lastActivityAt > STARTER_INTERVAL_MS
-      if (quiet) {
-        appendMessage(chatId, {
-          id: Date.now(), role: 'received', time: 'Now',
-          text: '💡 Quiet for a bit — conversation starter: “What’s one tiny win you had today?”',
-        })
-        setLastActivityAt(Date.now())
-      }
-    }, 10_000)
-
-    return () => clearInterval(timer)
-  }, [chatId, lastActivityAt])
 
   if (!chat) return <section className="screen"><p className="px5">Loading chat…</p></section>
 
@@ -106,7 +87,6 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
     if (!text) return
     appendMessage(chatId, { id: Date.now(), role: 'sent', text, time: 'Now' })
     setDraft('')
-    setLastActivityAt(Date.now())
 
     if (chat.isAgent) {
       setTimeout(() => {
@@ -153,9 +133,11 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
 
       <div className="controls px5">
         <div className="earn-pill"><Coins size={16} /> Current potential: {chat.earningHint}</div>
-        <button className="starter" onClick={() => { appendMessage(chatId, { id: Date.now(), role: 'received', text: 'Try this mini-game: 2 truths and a lie about your week.', time: 'Now' }); setLastActivityAt(Date.now()) }}>
-          Need help getting started? Try a conversation game.
-        </button>
+        {chat.inactiveHours >= 24 && (
+          <button className="starter" onClick={() => { appendMessage(chatId, { id: Date.now(), role: 'received', text: 'Try this mini-game: 2 truths and a lie about your week.', time: 'Now' }) }}>
+            Need help getting started? Try a conversation game.
+          </button>
+        )}
 
         {showInput && <div className="input-wrap"><input value={draft} onChange={(e) => setDraft(e.target.value)} placeholder="Type a message..." /><button onClick={sendMessage}>Send</button></div>}
 

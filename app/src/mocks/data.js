@@ -8,6 +8,7 @@ export const chats = [
     online: true,
     isAgent: false,
     earningHint: '$14.50/hr',
+    inactiveHours: 2,
   },
   {
     id: 'c2',
@@ -18,6 +19,7 @@ export const chats = [
     online: true,
     isAgent: true,
     earningHint: '$10.00/hr',
+    inactiveHours: 30,
   },
   {
     id: 'c3',
@@ -28,6 +30,7 @@ export const chats = [
     online: false,
     isAgent: false,
     earningHint: '$12.20/hr',
+    inactiveHours: 52,
   },
 ]
 
