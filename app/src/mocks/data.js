@@ -59,4 +59,10 @@ export const earnings = {
   totalEarned: 842.5,
   weekEarned: 87,
   monthEarned: 342,
+  previousRecordings: [
+    { id: 'r1', date: 'Mar 12, 2026', status: 'Completed', score: 92, amount: 12.8 },
+    { id: 'r2', date: 'Mar 11, 2026', status: 'Completed', score: 88, amount: 11.6 },
+    { id: 'r3', date: 'Mar 10, 2026', status: 'Pending', score: null, amount: 0 },
+    { id: 'r4', date: 'Mar 09, 2026', status: 'Rejected', score: 41, amount: 0 },
+  ],
 }

@@ -73,3 +73,20 @@ button,input{font:inherit}
 .panel.center{text-align:center}.panel.dark{background:#0f172a;color:#fff}
 .stars{margin:0;color:#f59e0b;font-size:26px}.panel h3{margin:6px 0;font-size:30px}.panel h4{margin:0 0 8px}.panel p{margin:0;color:#475569}.panel.dark p{color:#cbd5e1}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stats-grid .panel p{font-size:20px;font-weight:700;color:#0f172a}
+
+.history-section{display:grid;gap:10px}
+.history-head{display:flex;align-items:center;justify-content:space-between}
+.history-head h4{margin:0;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#94a3b8}
+.history-head button{border:0;background:transparent;color:#2563eb;font-weight:700}
+.history-list{display:grid;gap:10px}
+.history-item{display:flex;align-items:center;gap:10px;background:#f8fafc;border-radius:16px;padding:12px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
+.status-dot{width:34px;height:34px;border-radius:999px;display:grid;place-items:center;font-weight:700;background:#e2e8f0;color:#475569}
+.status-dot.completed{background:#dcfce7;color:#15803d}
+.status-dot.pending{background:#fef9c3;color:#a16207}
+.status-dot.rejected{background:#fee2e2;color:#b91c1c}
+.history-meta{flex:1;min-width:0}
+.history-meta strong{display:block}
+.history-meta p{margin:2px 0 0;color:#64748b;font-size:13px}
+.history-amount{font-weight:800;font-size:22px}
+.history-amount.pos{color:#0f172a}
+.history-amount.zero{color:#94a3b8}

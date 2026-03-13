@@ -218,6 +218,26 @@ function EarningsScreen({ earnings }) {
           <article className="panel"><h4>This Week</h4><p>${data.weekEarned.toFixed(2)}</p></article>
           <article className="panel"><h4>This Month</h4><p>${data.monthEarned.toFixed(2)}</p></article>
         </div>
+
+        <section className="history-section">
+          <div className="history-head">
+            <h4>Previous Earnings</h4>
+            <button>View All</button>
+          </div>
+
+          <div className="history-list">
+            {(data.previousRecordings || []).map((row) => (
+              <article key={row.id} className="history-item">
+                <div className={`status-dot ${row.status.toLowerCase()}`}>{row.status === 'Completed' ? '✓' : row.status === 'Pending' ? '◷' : '!'}</div>
+                <div className="history-meta">
+                  <strong>{row.date}</strong>
+                  <p>Voice Recording • {row.status} • Score: {row.score ?? '—'}</p>
+                </div>
+                <div className={`history-amount ${row.amount > 0 ? 'pos' : 'zero'}`}>{row.amount > 0 ? `+$${row.amount.toFixed(2)}` : '$0.00'}</div>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   )
