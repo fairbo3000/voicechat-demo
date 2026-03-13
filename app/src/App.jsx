@@ -248,7 +248,7 @@ function EarningsScreen({ earnings }) {
                 </div>
                 <div className="history-meta">
                   <strong>{row.date}</strong>
-                  <p>Voice Recording • {row.status} • Score: {row.score ?? '—'}</p>
+                  <p>Voice Recording • {row.status}</p>
                 </div>
                 <div className={`history-amount ${row.amount > 0 ? 'pos' : 'zero'}`}>{row.amount > 0 ? `+$${row.amount.toFixed(2)}` : '$0.00'}</div>
               </article>
