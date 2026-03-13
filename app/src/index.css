@@ -72,7 +72,11 @@ button,input{font:inherit}
 
 .panel{background:#f8fafc;border-radius:20px;padding:16px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
 .panel.center{text-align:center}.panel.dark{background:#0f172a;color:#fff}
-.stars{margin:0;color:#f59e0b;font-size:26px}.panel h3{margin:6px 0;font-size:30px}.panel h4{margin:0 0 8px}.panel p{margin:0;color:#475569}.panel.dark p{color:#cbd5e1}
+.top-cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+.top-card{height:100%;display:flex;flex-direction:column;justify-content:center}
+.stars{margin:0;color:#f59e0b;font-size:22px}.panel h3{margin:6px 0;font-size:30px}.panel h4{margin:0 0 8px}.panel p{margin:0;color:#475569}.panel.dark p{color:#cbd5e1}
+.top-card h3{font-size:24px;line-height:1.1}
+.top-card p{font-size:13px;line-height:1.3}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stats-grid .panel p{font-size:20px;font-weight:700;color:#0f172a}
 
 .history-section{display:grid;gap:12px;padding-top:10px}

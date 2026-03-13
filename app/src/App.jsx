@@ -210,8 +210,10 @@ function EarningsScreen({ earnings }) {
     <section className="screen">
       <header className="chat-header"><button className="icon-btn" onClick={() => navigate('/')}><ArrowLeft size={22} /></button><div><h2>Earnings</h2></div></header>
       <div className="content px5 space-y">
-        <article className="panel center"><p className="stars">★★★★☆</p><h3>{data.rating.toFixed(1)}</h3><p>{data.verifiedSubmissions} verified submissions</p></article>
-        <article className="panel dark"><h3>${data.currentRate.toFixed(2)}/hr</h3><p>Current earning rate</p></article>
+        <div className="top-cards-grid">
+          <article className="panel center top-card"><p className="stars">★★★★☆</p><h3>{data.rating.toFixed(1)}</h3><p>{data.verifiedSubmissions} verified submissions</p></article>
+          <article className="panel dark top-card"><h3>${data.currentRate.toFixed(2)}/hr</h3><p>Current earning rate</p></article>
+        </div>
         <article className="panel"><h4>How it works</h4><p>Base rate is $10/hr. Higher verified quality increases your star score and multiplier. Repeated unusable submissions can reduce earnings to $0/hr.</p></article>
         <div className="stats-grid">
           <article className="panel"><h4>Total</h4><p>${data.totalEarned.toFixed(2)}</p></article>
