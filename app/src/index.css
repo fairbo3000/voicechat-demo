@@ -41,6 +41,7 @@ button,input{font:inherit}
 .received{background:#f1f5f9;color:#0f172a;border-top-left-radius:4px}
 .sent{background:#007aff;color:#fff;border-top-right-radius:4px}
 
+.call-event{margin:0 auto;color:#94a3b8;font-size:14px;font-weight:500}
 .summary-card{background:#f8fafc;border-radius:16px;padding:12px;box-shadow:0 2px 12px -4px rgba(0,0,0,.05)}
 .summary-card .title{margin:0 0 6px;color:#2563eb;font-weight:700}
 .summary-card p{margin:0;font-size:14px;line-height:1.4}

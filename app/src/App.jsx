@@ -119,25 +119,33 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
     <section className="screen">
       <header className="chat-header">
         <button className="icon-btn" onClick={() => navigate('/')}><ArrowLeft size={22} /></button>
-        <div><h2>{chat.name}</h2><p>{chat.isAgent ? 'AI Agent • voice-first' : 'Online'}</p></div>
+        <div><h2>{chat.name}</h2><p>{chat.isAgent ? 'AI Agent • voice-first' : 'Last call: 4m 32s'}</p></div>
       </header>
 
       <div className="thread">
         <div className="date-pill">Today</div>
-        {messages.map((m) => (
-          m.role === 'system' ? (
-            <article key={m.id} className="summary-card">
-              <p className="title">✦ AI Conversation Summary</p>
-              <p>{m.summary}</p>
-              <div className="chips"><span>✓ {m.quality}</span><span>⛁ {m.earned} earned</span></div>
-              <button>Approve for Training Data</button>
-            </article>
-          ) : (
+        {messages.map((m) => {
+          if (m.role === 'system') {
+            return (
+              <article key={m.id} className="summary-card">
+                <p className="title">✦ AI Conversation Summary</p>
+                <p>{m.summary}</p>
+                <div className="chips"><span>✓ {m.quality}</span><span>⛁ {m.earned} earned</span></div>
+                <button>Approve for Training Data</button>
+              </article>
+            )
+          }
+
+          if (m.role === 'call_event') {
+            return <div key={m.id} className="call-event">📞 {m.text}</div>
+          }
+
+          return (
             <div key={m.id} className={`msg-row ${m.role === 'sent' ? 'sent-row' : 'received-row'}`}>
               <article className={`bubble ${m.role === 'sent' ? 'sent' : 'received'}`}><p>{m.text}</p><small>{m.time}</small></article>
             </div>
           )
-        ))}
+        })}
       </div>
 
       <div className="controls px5">

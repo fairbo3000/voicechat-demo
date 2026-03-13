@@ -35,6 +35,15 @@ export const messagesByChat = {
   c1: [
     { id: 1, role: 'received', text: 'Hey! Are you free for a call? I wanted to catch up about the weekend trip 🏔️', time: '2:34 PM' },
     { id: 2, role: 'sent', text: 'Yes! Let me call you now 😊', time: '2:35 PM' },
+    { id: 3, role: 'call_event', text: 'Voice call · 4m 32s · 2:39 PM' },
+    {
+      id: 4,
+      role: 'system',
+      summary:
+        'You and Sarah discussed weekend hiking plans at Mount Tamalpais. Key points: meeting Saturday at 9am, Sarah will bring trail snacks, and you will handle transportation. Both were excited about the waterfall route.',
+      earned: '$1.09',
+      quality: 'High quality',
+    },
   ],
   c2: [
     { id: 1, role: 'received', text: 'I can help with natural conversation prompts. Want to start with a quick game?', time: '2:30 PM' },
