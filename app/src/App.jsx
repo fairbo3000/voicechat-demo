@@ -204,6 +204,7 @@ function EarningsScreen({ earnings }) {
           </div>
         </article>
 
+        <p className="section-kicker">Rate Breakdown</p>
         <div className="top-cards-grid">
           <article className="panel center top-card"><p className="stars">★★★★☆</p><h3>{data.rating.toFixed(1)}</h3><p>{data.verifiedSubmissions} verified submissions</p></article>
           <article className="panel dark top-card"><h3>${data.currentRate.toFixed(2)}/hr</h3><p>Current earning rate</p></article>
@@ -217,7 +218,7 @@ function EarningsScreen({ earnings }) {
 
         <section className="history-section">
           <div className="history-head">
-            <h4>Previous Earnings</h4>
+            <h4>Recent Payouts</h4>
             <button>View All</button>
           </div>
 
