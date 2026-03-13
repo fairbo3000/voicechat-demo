@@ -124,10 +124,13 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
 
       <div className="thread">
         <div className="date-pill">Today</div>
-        {messages.map((m) => {
+        {messages.map((m, idx) => {
+          const prev = messages[idx - 1]
+          const isSpeakerChange = !prev || prev.role !== m.role
+
           if (m.role === 'system') {
             return (
-              <article key={m.id} className="summary-card">
+              <article key={m.id} className="summary-card summary-spaced">
                 <p className="title">✦ AI Conversation Summary</p>
                 <p>{m.summary}</p>
                 <div className="chips"><span>✓ {m.quality}</span><span>⛁ {m.earned} earned</span></div>
@@ -137,11 +140,11 @@ function ChatScreen({ chats, messagesByChat, loadMessages, appendMessage }) {
           }
 
           if (m.role === 'call_event') {
-            return <div key={m.id} className="call-event">📞 {m.text}</div>
+            return <div key={m.id} className="call-event call-event-spaced">📞 {m.text}</div>
           }
 
           return (
-            <div key={m.id} className={`msg-row ${m.role === 'sent' ? 'sent-row' : 'received-row'}`}>
+            <div key={m.id} className={`msg-row ${m.role === 'sent' ? 'sent-row' : 'received-row'} ${isSpeakerChange ? 'speaker-break' : 'speaker-stack'}`}>
               <article className={`bubble ${m.role === 'sent' ? 'sent' : 'received'}`}><p>{m.text}</p><small>{m.time}</small></article>
             </div>
           )
