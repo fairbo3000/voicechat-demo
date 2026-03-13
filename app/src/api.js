@@ -1,34 +1,34 @@
 import { chats, earnings, messagesByChat } from './mocks/data'
 
 const delay = (ms = 180) => new Promise((r) => setTimeout(r, ms))
+const USE_REMOTE_MOCK_ENDPOINTS = import.meta.env.DEV
 
-async function safeFetch(url) {
-  try {
-    const res = await fetch(url)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    return await res.json()
-  } catch {
-    return null
-  }
+async function fetchJson(url) {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+  return res.json()
 }
 
 export async function getChats() {
-  const remote = await safeFetch('/api/chats')
-  if (remote) return remote
-  await delay()
-  return chats
+  if (!USE_REMOTE_MOCK_ENDPOINTS) {
+    await delay()
+    return chats
+  }
+  return fetchJson('/api/chats')
 }
 
 export async function getMessages(chatId) {
-  const remote = await safeFetch(`/api/chats/${chatId}/messages`)
-  if (remote) return remote
-  await delay()
-  return messagesByChat[chatId] || []
+  if (!USE_REMOTE_MOCK_ENDPOINTS) {
+    await delay()
+    return messagesByChat[chatId] || []
+  }
+  return fetchJson(`/api/chats/${chatId}/messages`)
 }
 
 export async function getEarnings() {
-  const remote = await safeFetch('/api/earnings')
-  if (remote) return remote
-  await delay()
-  return earnings
+  if (!USE_REMOTE_MOCK_ENDPOINTS) {
+    await delay()
+    return earnings
+  }
+  return fetchJson('/api/earnings')
 }
