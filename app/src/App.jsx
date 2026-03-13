@@ -194,7 +194,7 @@ function EarningsScreen({ earnings }) {
   return (
     <section className="screen">
       <header className="chat-header"><button className="icon-btn" onClick={() => navigate('/')}><ArrowLeft size={22} /></button><div><h2>Earnings</h2></div></header>
-      <div className="content px5 space-y">
+      <div className="content px5 space-y earnings-content">
         <article className="balance-card">
           <p className="balance-label">Total Balance</p>
           <h3>${data.totalEarned.toFixed(2)}</h3>
