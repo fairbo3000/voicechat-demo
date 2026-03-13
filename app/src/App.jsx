@@ -228,7 +228,10 @@ function EarningsScreen({ earnings }) {
           <div className="history-list">
             {(data.previousRecordings || []).map((row) => (
               <article key={row.id} className="history-item">
-                <div className={`status-dot ${row.status.toLowerCase()}`}>{row.status === 'Completed' ? '✓' : row.status === 'Pending' ? '◷' : '!'}</div>
+                <div className={`status-dot ${row.status.toLowerCase()}`}>
+                  <span className="status-glyph">{row.status === 'Completed' ? '✓' : row.status === 'Pending' ? '◷' : '!'}</span>
+                  {row.score != null && <span className="status-score">{row.score}</span>}
+                </div>
                 <div className="history-meta">
                   <strong>{row.date}</strong>
                   <p>Voice Recording • {row.status} • Score: {row.score ?? '—'}</p>
