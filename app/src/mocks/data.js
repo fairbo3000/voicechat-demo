@@ -59,6 +59,8 @@ export const earnings = {
   totalEarned: 842.5,
   weekEarned: 87,
   monthEarned: 342,
+  thisWeekDelta: 42.2,
+  nextPayout: 'Mar 20',
   previousRecordings: [
     { id: 'r1', date: 'Mar 12, 2026', status: 'Completed', score: 92, amount: 12.8 },
     { id: 'r2', date: 'Mar 11, 2026', status: 'Completed', score: 88, amount: 11.6 },

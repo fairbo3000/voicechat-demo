@@ -210,6 +210,15 @@ function EarningsScreen({ earnings }) {
     <section className="screen">
       <header className="chat-header"><button className="icon-btn" onClick={() => navigate('/')}><ArrowLeft size={22} /></button><div><h2>Earnings</h2></div></header>
       <div className="content px5 space-y">
+        <article className="balance-card">
+          <p className="balance-label">Total Balance</p>
+          <h3>${data.totalEarned.toFixed(2)}</h3>
+          <div className="balance-foot">
+            <span className="up">↗ +${(data.thisWeekDelta ?? 0).toFixed(2)} this week</span>
+            <span className="next">Next payout: {data.nextPayout ?? 'TBD'}</span>
+          </div>
+        </article>
+
         <div className="top-cards-grid">
           <article className="panel center top-card"><p className="stars">★★★★☆</p><h3>{data.rating.toFixed(1)}</h3><p>{data.verifiedSubmissions} verified submissions</p></article>
           <article className="panel dark top-card"><h3>${data.currentRate.toFixed(2)}/hr</h3><p>Current earning rate</p></article>
