@@ -7,10 +7,11 @@ button,input{font:inherit}
 .app-shell,.screen{max-width:430px}
 .screen{min-height:100svh;display:flex;flex-direction:column;margin:0 auto;border-inline:1px solid #f1f5f9;background:#fff}
 
-.header,.chat-header{padding:40px 20px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header{padding:40px 20px 12px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.chat-header{padding:40px 20px 12px;display:flex;align-items:center;justify-content:flex-start;gap:12px}
 .header h1{margin:0;font-size:32px;font-weight:700}
 .icon-row{display:flex;gap:10px;color:#475569}
-.icon-btn{width:44px;height:44px;border:0;border-radius:999px;background:#fff;display:grid;place-items:center;color:#334155}
+.icon-btn{width:44px;height:44px;border:0;border-radius:999px;background:#fff;display:grid;place-items:center;color:#334155;flex:0 0 auto}
 .chat-header h2{margin:0;font-size:22px}.chat-header p{margin:0;font-size:13px;color:#64748b}
 
 .px5{padding-inline:20px}.content{padding-bottom:20px}.space-y{display:grid;gap:12px}
